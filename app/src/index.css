@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --radius: 0.625rem;
+  --background: #141414;
+  --foreground: #ffffff;
+  --card: #1f1f1f;
+  --card-foreground: #ffffff;
+  --popover: #1f1f1f;
+  --popover-foreground: #ffffff;
+  --primary: #e50914;
+  --primary-foreground: #ffffff;
+  --secondary: #2a2a2a;
+  --secondary-foreground: #ffffff;
+  --muted: #333333;
+  --muted-foreground: #a3a3a3;
+  --accent: #e50914;
+  --accent-foreground: #ffffff;
+  --destructive: #dc2626;
+  --border: #404040;
+  --input: #404040;
+  --ring: #e50914;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Netflix-style scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #141414;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e50914;
+}
+
+/* Hide scrollbar for horizontal scroll containers */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Netflix gradient overlay */
+.netflix-gradient {
+  background: linear-gradient(
+    to top,
+    #141414 0%,
+    transparent 60%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+}
+
+/* Card hover effect */
+.experience-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 40px rgba(229, 9, 20, 0.3);
+  z-index: 10;
+}
+
+/* Modal animation */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal-animate {
+  animation: modalFadeIn 0.2s ease-out;
+}
+
+/* Tech badge hover */
+.tech-badge {
+  transition: all 0.2s ease;
+}
+
+.tech-badge:hover {
+  background-color: #e50914;
+  color: white;
+}
